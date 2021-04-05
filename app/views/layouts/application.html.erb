@@ -10,19 +10,63 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand">
+            <span>Bookers</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropown" aria-contorols="navbarNavDropdown" aria-expand="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+          </button>
+          <div class= "navbar-collapse collapse show" id="navbarNavDropdown" style>
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to "Home", user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to "Users", users_path %>
+                </li>
+                <li>
+                  <%= link_to "Books", books_path %>
+                </li>
+                <li>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                </li>
 
-    <%= yield %>
+              <% else %>
+                <li>
+                  <%= link_to "Home", root_path %>
+                </li>
+                <li>
+                  <%= link_to "About", home_about_path %>
+                </li>
+                <li>
+                  <%= link_to "Sign Up", new_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to "Sign In", new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <%= 'CopyRight Infratop.inc'%>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
