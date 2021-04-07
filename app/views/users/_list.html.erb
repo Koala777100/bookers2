@@ -5,9 +5,9 @@
         <h2>User info</h2>
           <table class="table">
             <tbody>
-              <%= attachment_image_tag @user, :profile_image %>
-              <tr>name <%= @user.name %></tr>
-              <tr>introduction <%= @user.introduction %></tr>
+              <%= attachment_image_tag user, :profile_image_id %>
+              <tr>name <%= user.name %></tr>
+              <tr>introduction <%= user.introduction %></tr>
             </tbody>
           </table>
           <%= link_to 'edit profile', edit_user_path(current_user), class: "btn btn-secondary"%>
@@ -15,7 +15,7 @@
 
       <div class="new_book">
         <h2>New book</h2>
-        <%= form_with model: @book, local:true do |f| %>
+        <%= form_with model: book, local:true do |f| %>
           <h4>Title</h4>
           <%= f.text_field :title %>
           <h4>Opinion</h4>
@@ -28,11 +28,10 @@
     <div class="col-lg-8">
       <div class="users">
         <h2>Books</h2>
-        <% @books.each do |book| %>
+        <% books.each do |book| %>
         <table class="table table-striped">
           <tbody>
             <tr>Title <%= book.title %></tr></br>
-            <tr><%= link_to book.title, book_path(book.id) %></tr>
             <tr>Opinion <%= book.body %></tr>
           </tbody>
         </table>

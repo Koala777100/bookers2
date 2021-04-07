@@ -1,12 +1,43 @@
-<h1>Users#index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="users_info">
+        <h2>User info</h2>
+          <table class="table">
+            <tbody>
+              <%= attachment_image_tag @user, :profile_image %>
+              <tr>name <%= @user.name %></tr>
+              <tr>introduction <%= @user.introduction %></tr>
+            </tbody>
+          </table>
+          <%= link_to 'edit profile', edit_user_path(current_user), class: "btn btn-secondary"%>
+      </div>
 
-<div class="new_book">
-    <h2>New book</h2>
-      <%= form_with model: @user, local:true do |f| %>
-        <h4>Title</h4>
-        <%= f.text_field :title %>
-        <h4>Opinion</h4>
-        <%= f.text_area :body %>
-        <%= f.submit 'Create Book' %>
-      <% end %>
- </div>
+      <div class="new_book">
+        <h2>New book</h2>
+        <%= form_with model: @book, local:true do |f| %>
+          <h4>Title</h4>
+          <%= f.text_field :title %>
+          <h4>Opinion</h4>
+          <%= f.text_area :body %>
+          <%= f.submit 'Create Book' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="users">
+        <h2>Users</h2>
+        <% @users.each do |user| %>
+        <table class="table table-striped">
+          <tbody>
+            <tr>Image <%= user.profile_image %></tr>
+            <tr>Name <%= user.name %></tr>
+            <%= link_to "Show", user_path(user.id) %>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

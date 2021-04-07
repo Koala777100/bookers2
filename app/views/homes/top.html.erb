@@ -8,17 +8,10 @@
   </div>
   <div class="icon">
     <li>
-      <%= link_to "Log in", new_user_session_path %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary"%>
     </li>
     <li>
-      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary" %>
     </li>
   </div>
 </main>
-
-
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to '編集フォーム', users_edit_path %>
-    </li>
-  <% end %>
