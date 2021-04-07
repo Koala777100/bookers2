@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+</head>
     <% if @book.errors.any? %>
       <%= @book.errors.count %>error prohibited this obj from being saved:
       <% @book.errors.full_messages.each do |message| %>
@@ -21,7 +24,9 @@
               <td><%= @user.introduction %></td>
             </tr>
           </table>
-          <%= link_to 'edit profile', edit_user_path(current_user), class: "btn btn-secondary"%>
+          <%= link_to edit_user_path(current_user), class: "btn btn-secondary" do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
       </div>
 
       <div class="new_book">

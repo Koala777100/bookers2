@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+</head>
+
 <% if @book.errors.any? %>
   <%= @book.errors.count %>error prohibited this obj from being saved:
   <% @book.errors.full_messages.each do |message| %>
@@ -10,18 +14,20 @@
     <div class="col-lg-4">
       <div class="users_info">
         <h2>User info</h2>
-          <div class="users_image"><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></div>
-          <table class="table">
-            <tr>
-              <th>Name</th>
-              <th>Introduction</th>
-            </tr>
-            <tr>
-              <td><%= @user.name %></td>
-              <td><%= @user.introduction %></td>
-            </tr>
-          </table>
-          <%= link_to 'edit profile', edit_user_path(current_user), class: "btn btn-secondary"%>
+        <div class="users_image"><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></div>
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Introduction</th>
+          </tr>
+          <tr>
+            <td><%= @user.name %></td>
+            <td><%= @user.introduction %></td>
+          </tr>
+        </table>
+        <%= link_to edit_user_path(current_user), class: "btn btn-secondary" do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
       </div>
 
       <div class="new_book">

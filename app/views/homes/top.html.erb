@@ -1,17 +1,24 @@
-<main>
-  <h1>Welcome to Bookers!!</h1>
-  <div class="top_text">
-    <a>In Bookers,</br>
-    you can share and exchange your opinions, inpressions, and emotions</br>
-    about various books!
-    </a>
-  </div>
-  <div class="icon">
-    <li>
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+</head>
+
+<body>
+  <div class="text-center">
+    <h1>
+      welcome to <i class="fas fa-book"></i>Bookers!!
+    </h1>
+
+    <div class="top_text">
+      <a>In <i class="fas fa-book"></i>Bookers,</br>
+      you can share and exchange your opinions, inpressions, and emotions</br>
+      about various books!
+      </a>
+    </div>
+    <ul>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary"%>
-    </li>
-    <li>
+    </ul>
+    <ul>
       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary" %>
-    </li>
+    </ul>
   </div>
-</main>
+</body>

@@ -14,3 +14,11 @@
  *= require_self
  */
 @import "bootstrap";
+
+.navbar-brand:link, .navbar-brand:visited, .navbar-brand:hover, .navbar-brand:active {color:#FFF;}
+.navbar-brand {text-decoration: none;}
+
+.menu {
+  color:#FFF;
+
+}
