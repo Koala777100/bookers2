@@ -5,7 +5,7 @@
         <h2>User info</h2>
           <table class="table">
             <tbody>
-              <%= attachment_image_tag @user, :profile_image %>
+              <div class="users_image"><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %></div>
               <tr>name <%= @user.name %></tr>
               <tr>introduction <%= @user.introduction %></tr>
             </tbody>
@@ -15,7 +15,7 @@
 
       <div class="new_book">
         <h2>New book</h2>
-        <%= form_with model: @book, local:true do |f| %>
+        <%= form_with model: @book_new, local:true do |f| %>
           <h4>Title</h4>
           <%= f.text_field :title %>
           <h4>Opinion</h4>
@@ -29,13 +29,20 @@
       <div class="users">
         <h2>Book Detail</h2>
         <table class="table table-striped">
-          <tbody>
-            <tr>Image <%= @user.profile_image %></tr></br>
-            <tr>Title <%= @book.title %></tr>
-            <tr>Opinion <%= @book.body %></tr>
-            <%= link_to "Edit", edit_book_path(@book.id) %>
-            <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-          </tbody>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+          <tr>
+            <td><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
+            <td><%= link_to @book.title, book_path(@book.id) %></td>
+            <td><%= @book.body %></td>
+            <% if current_user.id == @user.id %>
+            <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
+            <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+            <% end %>
+          <tr>
         </table>
       </div>
     </div>
