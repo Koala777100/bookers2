@@ -1,9 +1,14 @@
 <% if @user.errors.any? %>
-  <%= @user.errors.count %>error prohibited this obj from being saved:
+  <p class="h3 text-danger">
+    <%= @user.errors.count %>error prohibited this obj from being saved:
+  </p>
   <% @user.errors.full_messages.each do |message| %>
+  <p class="text-danger">
     <%= message %>
+  </p>
   <% end %>
 <% end %>
+
 
 <h1>Users Info</h1>
 

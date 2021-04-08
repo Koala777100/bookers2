@@ -1,14 +1,4 @@
 class UsersController < ApplicationController
-  def new
-  end
-
-  def create
-    @user = User.new(user_params)
-    @user.id = current_user.id
-    if @user.save
-      redirect_to user_path, notice:"Welcome! You have signed up successfully."
-    end
-  end
 
   def index
     @user = current_user
@@ -38,8 +28,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-  end
 
   private
 

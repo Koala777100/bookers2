@@ -9,16 +9,17 @@
     </h1>
 
     <div class="top_text">
-      <a>In <i class="fas fa-book"></i>Bookers,</br>
+      In <i class="fas fa-book"></i>Bookers,</br>
       you can share and exchange your opinions, inpressions, and emotions</br>
       about various books!
-      </a>
     </div>
-    <ul>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary"%>
-    </ul>
-    <ul>
-      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary" %>
-    </ul>
+    <div class="col-xs-8">
+      <ul>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-block" %>
+      </ul>
+      <ul>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-block" %>
+      </ul>
+    </div>
   </div>
 </body>
