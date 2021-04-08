@@ -7,19 +7,19 @@
     <h1>
       welcome to <i class="fas fa-book"></i>Bookers!!
     </h1>
+  </div>
 
-    <div class="top_text">
-      In <i class="fas fa-book"></i>Bookers,</br>
-      you can share and exchange your opinions, inpressions, and emotions</br>
-      about various books!
-    </div>
-    <div class="col-xs-8">
-      <ul>
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-block" %>
-      </ul>
-      <ul>
-        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-block" %>
-      </ul>
-    </div>
+  <div class="col justify-content-center">
+    In <i class="fas fa-book"></i>Bookers,</br>
+    you can share and exchange your opinions, inpressions, and emotions</br>
+    about various books!
+  </div>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <ul>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-block" %>
+    </ul>
+    <ul>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-block" %>
+    </ul>
   </div>
 </body>
