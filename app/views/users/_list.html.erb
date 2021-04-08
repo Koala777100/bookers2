@@ -1,42 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="users_info">
-        <h2>User info</h2>
-          <table class="table">
-            <tbody>
-              <%= attachment_image_tag user, :profile_image_id %>
-              <tr>name <%= user.name %></tr>
-              <tr>introduction <%= user.introduction %></tr>
-            </tbody>
-          </table>
-          <%= link_to 'edit profile', edit_user_path(current_user), class: "btn btn-secondary"%>
-      </div>
+<div class="col-md-3">
+  <div class="users_info">
+    <h2>User info</h2>
+    <div class="users_image"><%= attachment_image_tag user, :profile_image, :fill, 90, 90, fallback: "no_image.jpg" %></div>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Introduction</th>
+      </tr>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.introduction %></td>
+      </tr>
+    </table>
+    <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+  </div>
 
-      <div class="new_book">
-        <h2>New book</h2>
-        <%= form_with model: book, local:true do |f| %>
-          <h4>Title</h4>
-          <%= f.text_field :title %>
-          <h4>Opinion</h4>
-          <%= f.text_area :body %>
-          <%= f.submit 'Create Book' %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="col-lg-8">
-      <div class="users">
-        <h2>Books</h2>
-        <% books.each do |book| %>
-        <table class="table table-striped">
-          <tbody>
-            <tr>Title <%= book.title %></tr></br>
-            <tr>Opinion <%= book.body %></tr>
-          </tbody>
-        </table>
-        <% end %>
-      </div>
-    </div>
+  <div class="new_book">
+    <h2>New book</h2>
+    <%= form_with model: book, local:true do |f| %>
+      <a>Title</a>
+      <%= f.text_field :title, class: 'form-control' %>
+      <a>Opinion</a>
+      <%= f.text_area :body, class: 'form-control' %></br>
+      <%= f.submit 'Create Book', class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
