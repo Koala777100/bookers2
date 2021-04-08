@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-3">
       <div class="users_info">
         <h2>User info</h2>
           <div class="users_image"><%= attachment_image_tag @user, :profile_image, :fill, 90, 90, fallback: "no_image.jpg" %></div>
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-md-8 offset-md-1">
       <div class="users">
         <h2>Book detail</h2>
         <table class="table">
@@ -44,8 +44,10 @@
             </td>
             <td><%= link_to @book.title, book_path(@book.id) %></td>
             <td><%= @book.body %></td>
+            <% if @user == current_user %>
               <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success btn-sm" %></td>
-              <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+              <td><%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-danger btn-sm", "data-confirm" => "本当に削除しますか？" %></td>
+            <% end %>
           </tr>
         </table>
       </div>
