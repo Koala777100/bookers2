@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     @book_new = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
-    @post_comment = PostComment.new
+    @book_comment = BookComment.new
   end
 
   def create
@@ -51,4 +51,6 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :profile_image, :body)
   end
+
+
 end
