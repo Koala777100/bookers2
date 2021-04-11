@@ -9,6 +9,7 @@ describe '[STEP4] いいねとコメントのテスト' do
   let!(:user_other_favorite) { create(:favorite, book: other_book, user: user) }  # 削除テスト用に、他人の投稿に対して自分がいいねを作成
   let!(:other_user_book_comment) { create(:book_comment, book: book, user: other_user) }
 
+
   before do
     visit new_user_session_path
     fill_in 'user[name]', with: user.name
