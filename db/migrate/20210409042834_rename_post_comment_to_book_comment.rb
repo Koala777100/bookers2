@@ -1,5 +1,5 @@
 class RenamePostCommentToBookComment < ActiveRecord::Migration[5.2]
   def change
-    rename_table :book_comments, :book_comments
+    rename_table :post_comments, :book_comments
   end
 end
